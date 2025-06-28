@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SRT & TXT File Checker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>SRT & TXT File Checker</h1>
+            <p>Compare and edit SRT and TXT files side by side</p>
+        </header>
+
+        <div class="main-content">
+            <!-- Left Panel - SRT File -->
+            <div class="panel left-panel">
+                <div class="panel-header">
+                    <h2>SRT File</h2>
+                    <div class="controls">
+                        <label for="srt-upload" class="upload-btn">
+                            📁 Import SRT
+                            <input type="file" id="srt-upload" accept=".srt" style="display: none;">
+                        </label>
+                        <button id="export-srt" class="export-btn">💾 Export SRT</button>
+                        <button id="clear-srt" class="clear-btn">🗑️ Clear</button>
+                    </div>
+                </div>
+                <div class="editor-container">
+                    <textarea id="srt-editor" placeholder="Import an SRT file or paste your content here...
+Example:
+1
+00:00:01,000 --> 00:00:04,000
+This is the first subtitle
+
+2
+00:00:05,000 --> 00:00:08,000
+This is the second subtitle"></textarea>
+                </div>
+                <div class="file-info">
+                    <span id="srt-info">No file loaded</span>
+                </div>
+            </div>
+
+            <!-- Right Panel - TXT File -->
+            <div class="panel right-panel">
+                <div class="panel-header">
+                    <h2>TXT File</h2>
+                    <div class="controls">
+                        <label for="txt-upload" class="upload-btn">
+                            📁 Import TXT
+                            <input type="file" id="txt-upload" accept=".txt" style="display: none;">
+                        </label>
+                        <button id="export-txt" class="export-btn">💾 Export TXT</button>
+                        <button id="clear-txt" class="clear-btn">🗑️ Clear</button>
+                    </div>
+                </div>
+                <div class="editor-container">
+                    <textarea id="txt-editor" placeholder="Import a TXT file or paste your content here...
+
+You can paste plain text here for comparison with the SRT file."></textarea>
+                </div>
+                <div class="file-info">
+                    <span id="txt-info">No file loaded</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional Controls -->
+        <div class="bottom-controls">
+            <button id="sync-scroll" class="sync-btn">🔄 Sync Scroll</button>
+            <button id="extract-text" class="extract-btn">📝 Extract Text from SRT</button>
+            <button id="convert-to-srt" class="convert-btn">🔄 Convert TXT to SRT</button>
+        </div>
+
+        <!-- AI Comparison Section -->
+        <div class="ai-comparison-section">
+            <div class="ai-header">
+                <h3>AI-Powered Comparison</h3>
+                <p>Compare your SRT subtitles against the original TXT for grammar, punctuation, and accuracy</p>
+            </div>
+            <div class="ai-controls">
+                <button id="compare-ai" class="compare-ai-btn">🤖 COMPARE WITH AI</button>
+                <div class="ai-status" id="ai-status">Ready to compare</div>
+            </div>
+            <div class="ai-results" id="ai-results" style="display: none;">
+                <div class="results-header">
+                    <h4>Comparison Results</h4>
+                    <button id="clear-results" class="clear-results-btn">✕</button>
+                </div>
+                <div class="results-content" id="results-content"></div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Drag and drop files onto the editors or use the import buttons</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
