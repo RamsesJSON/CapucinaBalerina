@@ -438,7 +438,7 @@ async function compareWithAI() {
 }
 
 async function callGeminiAPI(originalText, srtText, fullSrtContent) {
-    const prompt = `You are an expert text analyst. Please compare the original text with the subtitle text (SRT) and provide a detailed analysis.
+    const prompt = `Compare the ORIGINAL TEXT with the SUBTITLE TEXT and provide a side-by-side comparison showing differences.
 
 ORIGINAL TEXT (Reference):
 ${originalText}
@@ -446,19 +446,27 @@ ${originalText}
 SUBTITLE TEXT (From SRT):
 ${srtText}
 
-FULL SRT CONTENT (for context):
-${fullSrtContent}
+Please provide a side-by-side comparison in this exact format:
 
-Please analyze and provide:
+**SIDE-BY-SIDE COMPARISON:**
 
-1. **Grammar Issues**: Identify any grammatical errors in the subtitle text compared to the original
-2. **Punctuation Problems**: Note missing, incorrect, or extra punctuation marks
-3. **Word Accuracy**: Find misspelled words, wrong words, or missing words
-4. **Consistency Issues**: Identify inconsistencies in capitalization, formatting, or style
-5. **Timing Context**: Comment on whether the text divisions make sense for subtitle timing
-6. **Overall Quality**: Rate the subtitle quality and provide improvement suggestions
+| ORIGINAL | SUBTITLE | ISSUE TYPE |
+|----------|----------|------------|
+| [original phrase] | [subtitle phrase] | [Grammar/Punctuation/Spelling/Missing/Extra] |
 
-Format your response in clear sections with specific examples and suggestions for improvement. Be detailed but concise.`;
+**SPECIFIC DIFFERENCES FOUND:**
+
+For each difference, show:
+- **Line/Phrase**: "[original text]" vs "[subtitle text]"
+- **Issue**: [What's wrong - grammar, punctuation, spelling, etc.]
+- **Fix**: "[suggested correction]"
+
+**SUMMARY:**
+- Total differences found: [number]
+- Most common issues: [list top 2-3 issue types]
+- Accuracy rate: [percentage]
+
+Focus ONLY on actual differences between the texts. Ignore timing codes. Be precise and concise.`;
 
     const requestBody = {
         contents: [{
